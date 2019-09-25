@@ -2,22 +2,22 @@
 
 Tech
 
-Meteor
-MongoDB
-React
-CalendarIO
-React Spring
-Formik
+Meteor,
+MongoDB,
+React,
+CalendarIO,
+React Spring,
+Formik,
 Shards
 
 
 API
 
-Eventbrite
-Darksky
-Yelp
-Map
-  Geoloaction
-  Geocoding
+Eventbrite,
+Darksk,
+Yelp,
+Map:
+  Geoloaction,
+  Geocoding,
   Travel times
 
