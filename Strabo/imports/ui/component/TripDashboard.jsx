@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Geocode from './Geocode';
+
+
+
 
 export class TripDashboard extends Component {
     render() {
@@ -7,6 +11,9 @@ export class TripDashboard extends Component {
         return (
             <div>
                 <h1>Trip Dashboard</h1>
+                <Geocode />
+                
+          
             </div>
         );
     }

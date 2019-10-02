@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /Users/jason/.yarn/bin/yarn.js add opencage-autocomplete-react
+
+PATH: 
+  /Users/jason/.yarn/bin:/Users/jason/.config/yarn/global/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/opencage-autocomplete-react: Not found
+      at Request.params.callback [as _callback] (/Users/jason/.yarn/lib/cli.js:66830:18)
+      at Request.self.callback (/Users/jason/.yarn/lib/cli.js:140464:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/Users/jason/.yarn/lib/cli.js:141436:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/Users/jason/.yarn/lib/cli.js:141358:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "Strabo",
+    "private": true,
+    "scripts": {
+      "start": "meteor run",
+      "test": "meteor test --once --driver-package meteortesting:mocha",
+      "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+      "visualize": "meteor --production --extra-packages bundle-visualizer"
+    },
+    "dependencies": {
+      "@babel/runtime": "^7.3.4",
+      "meteor-node-stubs": "^0.4.1",
+      "opencage-api-client": "^0.5.0",
+      "react": "^16.5.0",
+      "react-dom": "^16.5.0",
+      "react-geosuggest": "^2.12.0",
+      "react-router-dom": "^5.1.2"
+    },
+    "meteor": {
+      "mainModule": {
+        "client": "client/main.jsx",
+        "server": "server/main.js"
+      },
+      "testModule": "tests/main.js"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
