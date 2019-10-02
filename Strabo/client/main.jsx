@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
-import App from '/imports/ui/App'
+import Strabo from '../imports/ui/Srabo';
 
 Meteor.startup(() => {
-  render(<App />, document.getElementById('react-target'));
+  render(<Strabo />, document.getElementById('react-target'));
 });
