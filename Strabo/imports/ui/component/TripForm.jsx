@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Meteor } from 'meteor/meteor';
+import Calendar from './Calendar';
 import { Trips } from '../../api/trips';
 import Place_Search from "./Place_Search";
 
@@ -9,7 +10,9 @@ const initialState = {
     location: "",
     country: "",
     latitude: "",
-    longitude: ""
+    longitude: "",
+    startDate: "",
+    endDate: ""
 }
 
 const Input = (props) => <input style={{ background: "pink", color: "brown" }} {...props} />
@@ -26,15 +29,17 @@ export default class TripForm extends Component {
             [name]: value
         })
     }
-    handleLocationSelect = (newLocation, newCountry, newLatitude, newLongitude) =>{
+    handleLocationSelect = (newLocation, newCountry, newLatitude, newLongitude) => {
         this.setState({
-            location : newLocation,
-            country : newCountry,
-            latitude : newLatitude,
-            longitude : newLongitude,
+            location: newLocation,
+            country: newCountry,
+            latitude: newLatitude,
+            longitude: newLongitude,
         })
 
     }
+
+    handleCalendarOnChange = (startDate, endDate) => this.setState({ startDate, endDate });
 
 
     handleClear = (e) => {
@@ -47,12 +52,15 @@ export default class TripForm extends Component {
         // validations run before this ?
         // const trip = this.state;
         // Trips.insert(trip)
-        Meteor.call('trips.insert', 
+        Meteor.call('trips.insert',
             this.state.name,
             this.state.location,
             this.state.country,
             this.state.latitude,
-            this.state.longitude)
+            this.state.longitude,
+            this.state.startDate,
+            this.state.endDate
+        )
     }
 
     render() {
@@ -69,15 +77,8 @@ export default class TripForm extends Component {
                         value={this.state.name}
                         name="name"
                     />
-                    {/* <Input
-                        onChange={(e) => this.handleInputChange(e)}
-                        placeholder="Trip Location"
-                        type="text"
-                        value={this.state.city}
-                        name="city"
-                    /> */}
-                    <Place_Search updateLocation={this.handleLocationSelect}/>
-
+                    <Place_Search updateLocation={this.handleLocationSelect} />
+                    <Calendar startDate={this.state.startDate} endDate={this.state.endDate} calendarOnChange={this.handleCalendarOnChange} />
                     <button onClick={this.handleSubmit}> submit </button>
                     <button onClick={this.handleClear}> clear </button>
                 </form>
