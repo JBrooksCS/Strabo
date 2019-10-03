@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Meteor } from 'meteor/meteor';
 import { Trips } from '../../api/trips'
+import Calendar from './Calendar';
 
 const initialState = {
     name: "",
@@ -30,9 +31,6 @@ export default class TripForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // validations run before this ?
-        // const trip = this.state;
-        // Trips.insert(trip)
         Meteor.call('trips.insert', this.state.name, this.state.location)
     }
 
@@ -57,6 +55,7 @@ export default class TripForm extends Component {
                         value={this.state.location}
                         name="location"
                     />
+                    <Calendar />
                     <button onClick={this.handleSubmit}> submit </button>
                     <button onClick={this.handleClear}> clear </button>
                 </form>
