@@ -16,9 +16,12 @@ if (Meteor.isServer) {
     })
 }
 Meteor.methods({
-    'trips.insert'(name, location) {
+    'trips.insert'(name, location, country, latitude, longitude ) {
         check(name, String);
         check(location, String);
+        check(country, String);
+        check(latitude, Number);
+        check(longitude, Number);
 
         if (!this.userId) {
             throw new Meteor.Error('not authorized');
@@ -27,6 +30,9 @@ Meteor.methods({
         Trips.insert({
             name,
             location,
+            country,
+            latitude,
+            longitude,
             owner: this.userId,
         });
     },
