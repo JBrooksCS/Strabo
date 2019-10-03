@@ -27,9 +27,10 @@ class Place_Search extends Component {
                   lng: -122.419,
                 }}
               />
-              <div style={{ height: 500 }}>
+              {/* For including a Google Map */}
+              {/* <div style={{ height: 500 }}> */}
                 {/* <GoogleMapsLoader apiKey="AIzaSyBawL8VbstJDdU5397SUX7pEt9DslAwWgQ"> */}
-                  {google => (
+                  {/* {google => (
                     <GeoSearch google={google}>
                       {({ hits }) => (
                         <Fragment>
@@ -40,9 +41,9 @@ class Place_Search extends Component {
                         </Fragment>
                       )}
                     </GeoSearch>
-                  )}
+                  )} */}
                 {/* </GoogleMapsLoader> */}
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </InstantSearch>
