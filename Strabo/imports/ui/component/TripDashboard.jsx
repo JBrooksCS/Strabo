@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Geocode from './Geocode';
+import Place_Search from "./Place_Search"
+
 
 
 
@@ -11,8 +12,9 @@ export class TripDashboard extends Component {
         return (
             <div>
                 <h1>Trip Dashboard</h1>
-                <Geocode />
-                
+                {/* <Geocode /> */}
+                <Place_Search />
+
           
             </div>
         );
