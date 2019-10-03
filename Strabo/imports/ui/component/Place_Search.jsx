@@ -26,6 +26,7 @@ class Place_Search extends Component {
                   lat: 37.7793,
                   lng: -122.419,
                 }}
+                updateLocation = {this.props.updateLocation}
               />
               {/* For including a Google Map */}
               {/* <div style={{ height: 500 }}> */}

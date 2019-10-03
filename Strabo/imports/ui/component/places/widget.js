@@ -19,7 +19,10 @@ class Places extends Component {
     });
 
     autocomplete.on('change', event => {
-        console.log("Location_Data ",event.suggestion)
+        // console.log("Location_Data ",event.suggestion)
+
+        this.props.updateLocation(event.suggestion.name, event.suggestion.country, event.suggestion.latlng.lat,event.suggestion.latlng.lng);
+        
         refine(event.suggestion.latlng);
     });
 
