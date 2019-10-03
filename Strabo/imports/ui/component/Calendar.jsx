@@ -28,22 +28,17 @@ const MONTH_LABELS = [
 
 class Calendar extends Component {
 
-    state = {
-        startDate: "",
-        endDate: ""
-    }
-    onChange = (startDate, endDate) => this.setState({ startDate, endDate });
 
     render = () => {
-        const { startDate, endDate } = this.state;
+
 
         return (
             <ReactLightCalendar
                 dayLabels={DAY_LABELS}
                 monthLabels={MONTH_LABELS}
-                onChange={this.onChange}
-                startDate={startDate}
-                endDate={endDate}
+                onChange={this.props.calendarOnChange}
+                startDate={this.props.startDate}
+                endDate={this.props.endDate}
                 {...this.props} // Add parent's additionnal props
             />
         );

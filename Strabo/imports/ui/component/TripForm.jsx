@@ -10,7 +10,9 @@ const initialState = {
     location: "",
     country: "",
     latitude: "",
-    longitude: ""
+    longitude: "",
+    startDate: "",
+    endDate: ""
 }
 
 const Input = (props) => <input style={{ background: "pink", color: "brown" }} {...props} />
@@ -37,6 +39,8 @@ export default class TripForm extends Component {
 
     }
 
+    handleCalendarOnChange = (startDate, endDate) => this.setState({ startDate, endDate });
+
 
     handleClear = (e) => {
         e.preventDefault()
@@ -53,7 +57,10 @@ export default class TripForm extends Component {
             this.state.location,
             this.state.country,
             this.state.latitude,
-            this.state.longitude)
+            this.state.longitude,
+            this.state.startDate,
+            this.state.endDate
+        )
     }
 
     render() {
@@ -71,7 +78,7 @@ export default class TripForm extends Component {
                         name="name"
                     />
                     <Place_Search updateLocation={this.handleLocationSelect} />
-                    <Calendar />
+                    <Calendar startDate={this.state.startDate} endDate={this.state.endDate} calendarOnChange={this.handleCalendarOnChange} />
                     <button onClick={this.handleSubmit}> submit </button>
                     <button onClick={this.handleClear}> clear </button>
                 </form>
