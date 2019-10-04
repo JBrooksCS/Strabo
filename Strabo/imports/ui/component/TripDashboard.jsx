@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Trip from './Trip';
+import Trip from './TripItem';
 import { Trips } from '../../api/trips'
 import { withTracker } from 'meteor/react-meteor-data';
 export class TripDashboard extends Component {

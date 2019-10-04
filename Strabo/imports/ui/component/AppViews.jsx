@@ -30,7 +30,7 @@ class AppViews extends Component {
 
                 <Route exact path="/dashboard" component={TripDashboard} />
 
-                <Route exact path="/trip" render={(props) =>
+                <Route exact path="/tripform" render={(props) =>
 
                     <TripForm {...props} />} >
 
