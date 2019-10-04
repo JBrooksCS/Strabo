@@ -21,3 +21,18 @@ Map:
   Geocoding,
   Travel times
 
+
+Development
+-----------
+
+Requirements:
+
+* Node x.x 
+* [Meteor](https://www.meteor.com/install)
+
+###Setup
+
+From root directory of repo:
+
+  npm install
+  meteor run
