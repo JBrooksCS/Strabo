@@ -30,9 +30,9 @@ Requirements:
 * Node 8.8.1 
 * [Meteor](https://www.meteor.com/install)
 
-###Setup
+### Setup
 
 From root directory of repo:
 
-  npm install
-  meteor run
+    npm install
+    meteor run
