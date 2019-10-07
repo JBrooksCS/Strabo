@@ -27,7 +27,7 @@ Development
 
 Requirements:
 
-* Node x.x 
+* Node 8.8.1 
 * [Meteor](https://www.meteor.com/install)
 
 ###Setup
