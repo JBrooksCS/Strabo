@@ -48,34 +48,42 @@ export default function TripForm() {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        Meteor.call('trips.insert',
+        const readOut = Meteor.call('trips.insert',
             name,
             location,
             country,
             latitude,
             longitude,
             startDate,
-            endDate
+            endDate,
+            function (err, res) {
+                if (err) {
+                    console.log(err);
+                    throw new Meteor.Error('It did not work!')
+                } else {
+                    console.log("RESULT: ", res);
+                }
+            }
         )
     }
-        // console.log(Meteor.userId())
-        console.log({name})
-        return (
-            <div>
-                <h1>Plan Trip</h1>
-                <form>
-                    <Input
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Trip Name"
-                        type="text"
-                        value={name}
-                        name="name"
-                    />
-                    <Place_Search updateLocation={this.handleLocationSelect} />
-                    <Calendar startDate={startDate} endDate={endDate} calendarOnChange={this.handleCalendarOnChange} />
-                    <button onClick={this.handleSubmit}> submit </button>
-                    <button onClick={this.handleClear}> clear </button>
-                </form>
-            </div>
-        )
+    // console.log(Meteor.userId())
+    console.log({ name })
+    return (
+        <div>
+            <h1>Plan Trip</h1>
+            <form>
+                <Input
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Trip Name"
+                    type="text"
+                    value={name}
+                    name="name"
+                />
+                <Place_Search updateLocation={this.handleLocationSelect} />
+                <Calendar startDate={startDate} endDate={endDate} calendarOnChange={this.handleCalendarOnChange} />
+                <button onClick={this.handleSubmit}> submit </button>
+                <button onClick={this.handleClear}> clear </button>
+            </form>
+        </div>
+    )
 }
