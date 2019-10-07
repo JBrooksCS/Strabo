@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, useCallback } from 'react'
 import { useState } from 'react'
 import { Meteor } from 'meteor/meteor';
 import Calendar from './Calendar';
 import { Trips } from '../../api/trips';
 import Place_Search from "./Place_Search";
+import { withTracker } from 'meteor/react-meteor-data';
+import { func } from 'prop-types';
 
 
 
 const Input = (props) => <input style={{ background: "pink", color: "brown" }} {...props} />
 
 //////////////////////////////// export default class TripForm extends Component {
-export default function TripForm() {
-
+export default function TripForm(props) {
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [country, setCountry] = useState("");
@@ -55,27 +56,31 @@ export default function TripForm() {
             latitude,
             longitude,
             startDate,
-            endDate
+            endDate, function (err, res) {
+                return res
+            }
         )
     }
-        // console.log(Meteor.userId())
-        console.log({name})
-        return (
-            <div>
-                <h1>Plan Trip</h1>
-                <form>
-                    <Input
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Trip Name"
-                        type="text"
-                        value={name}
-                        name="name"
-                    />
-                    <Place_Search updateLocation={this.handleLocationSelect} />
-                    <Calendar startDate={startDate} endDate={endDate} calendarOnChange={this.handleCalendarOnChange} />
-                    <button onClick={this.handleSubmit}> submit </button>
-                    <button onClick={this.handleClear}> clear </button>
-                </form>
-            </div>
-        )
+    // console.log(Meteor.userId())
+    // console.log({ name })
+    console.log(props)
+    return (
+        <div>
+            <h1>Plan Trip</h1>
+            <form>
+                <Input
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Trip Name"
+                    type="text"
+                    value={name}
+                    name="name"
+                />
+                <Place_Search updateLocation={this.handleLocationSelect} />
+                <Calendar startDate={startDate} endDate={endDate} calendarOnChange={this.handleCalendarOnChange} />
+                <button onClick={this.handleSubmit}> submit </button>
+                <button onClick={this.handleClear}> clear </button>
+            </form>
+        </div>
+    )
 }
+

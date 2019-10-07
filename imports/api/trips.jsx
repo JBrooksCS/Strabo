@@ -38,8 +38,9 @@ Meteor.methods({
             longitude,
             startDate,
             endDate,
-            owner: this.userId,
+            owner: this.userId
         });
+
     },
     'trips.remove'(tripId) {
         check(tripId, String);

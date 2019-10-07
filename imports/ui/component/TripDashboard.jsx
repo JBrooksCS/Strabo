@@ -10,7 +10,7 @@ export class TripDashboard extends Component {
             <div className="Wrapper-Dashboard">
                 <h1>Trip Dashboard</h1>
                 {/* <Geocode /> */}
-                <button onClick={() => { this.props.history.push(`/trip`) }}>+</button>
+                <button onClick={() => { this.props.history.push(`/tripform`) }}>+</button>
                 <ul>
                     {
                         this.props.trips.map((trip, index) =>
