@@ -18,7 +18,8 @@
     "react-geosuggest": "^2.12.0",
     "react-instantsearch-dom": "^5.7.0",
     "react-instantsearch-dom-maps": "^5.7.0",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "reusable": "^1.0.0-alpha.12"
   },
   "meteor": {
     "mainModule": {
