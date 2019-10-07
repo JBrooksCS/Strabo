@@ -3,10 +3,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
-import { Auth } from "./Auth"
+import { Auth } from "./Auth";
 import TripDashboard from './TripDashboard';
 import { Meteor } from 'meteor/meteor';
-import { Landing } from "./Landing"
+import { Landing } from "./Landing";
 import TripForm from './TripForm';
 
 class AppViews extends Component {

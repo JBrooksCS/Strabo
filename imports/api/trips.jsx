@@ -23,14 +23,14 @@ Meteor.methods({
         check(latitude, Number);
         check(longitude, Number);
         check(startDate, Number);
-        check(endDate, Number)
+        check(endDate, Number);
 
 
         if (!this.userId) {
             throw new Meteor.Error('not authorized');
         }
 
-        Trips.insert({
+        return Trips.insert({
             name,
             location,
             country,

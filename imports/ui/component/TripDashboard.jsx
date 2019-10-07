@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Trip from './TripItem';
 import { Trips } from '../../api/trips'
 import { withTracker } from 'meteor/react-meteor-data';
+
 export class TripDashboard extends Component {
     render() {
         // console.log("TripDashboard Rendering")
-        console.log(this.props.trips)
+        console.log("Trips : ", this.props.trips)
         return (
             <div className="Wrapper-Dashboard">
                 <h1>Trip Dashboard</h1>

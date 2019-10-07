@@ -49,21 +49,26 @@ export default function TripForm(props) {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        Meteor.call('trips.insert',
+        const readOut = Meteor.call('trips.insert',
             name,
             location,
             country,
             latitude,
             longitude,
             startDate,
-            endDate, function (err, res) {
-                return res
+            endDate,
+            function (err, res) {
+                if (err) {
+                    console.log(err);
+                    throw new Meteor.Error('It did not work!')
+                } else {
+                    console.log("RESULT: ", res);
+                }
             }
         )
     }
     // console.log(Meteor.userId())
-    // console.log({ name })
-    console.log(props)
+    console.log({ name })
     return (
         <div>
             <h1>Plan Trip</h1>
