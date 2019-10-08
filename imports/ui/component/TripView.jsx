@@ -8,4 +8,5 @@ function TripView(props) {
         </div>
     );
 }
+
 export default TripView;
