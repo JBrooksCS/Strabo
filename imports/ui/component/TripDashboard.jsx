@@ -4,9 +4,11 @@ import { Trips } from '../../api/trips'
 import { withTracker } from 'meteor/react-meteor-data';
 
 export class TripDashboard extends Component {
+
     render() {
         // console.log("TripDashboard Rendering")
         console.log("Trips : ", this.props.trips)
+        // console.log(this.props)
         return (
             <div className="Wrapper-Dashboard">
                 <h1>Trip Dashboard</h1>
@@ -24,7 +26,6 @@ export class TripDashboard extends Component {
         );
     }
 }
-
 export default withTracker(() => {
     return {
         trips: Trips.find({}).fetch(),

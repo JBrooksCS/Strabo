@@ -22,12 +22,6 @@ export default function TripForm(props) {
     const [endDate, setEndDate] = useState("");
 
     handleLocationSelect = (newLocation, newCountry, newLatitude, newLongitude) => {
-        // this.setState({
-        //     location: newLocation,
-        //     country: newCountry,
-        //     latitude: newLatitude,
-        //     longitude: newLongitude,
-        // })
         setLocation(newLocation);
         setCountry(newCountry);
         setLatitude(newLatitude);
@@ -49,7 +43,8 @@ export default function TripForm(props) {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        const readOut = Meteor.call('trips.insert',
+
+        Meteor.call('trips.insert',
             name,
             location,
             country,
@@ -59,16 +54,15 @@ export default function TripForm(props) {
             endDate,
             function (err, res) {
                 if (err) {
-                    console.log(err);
-                    throw new Meteor.Error('It did not work!')
+                    return err
                 } else {
-                    console.log("RESULT: ", res);
+                    const tripId = res;
+                    return props.history.push(`trip/${tripId}`);
+
                 }
             }
-        )
+        );
     }
-    // console.log(Meteor.userId())
-    console.log({ name })
     return (
         <div>
             <h1>Plan Trip</h1>
@@ -85,7 +79,7 @@ export default function TripForm(props) {
                 <button onClick={this.handleSubmit}> submit </button>
                 <button onClick={this.handleClear}> clear </button>
             </form>
-        </div>
+        </div >
     )
 }
 

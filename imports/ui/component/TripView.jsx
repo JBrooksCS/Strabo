@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export class TripView extends Component {
 
-    render() {
-        return (
-            <div>
-                <h1></h1>
-            </div>
-        );
-    }
+function TripView(props) {
+    return (
+        <div>
+            <h1>hi</h1>
+        </div>
+    );
 }
-
 export default TripView;

@@ -15,9 +15,7 @@ export class Auth extends Component {
         return (
             <div>
                 {/* <h1>AUTH PAGE</h1> */}
-
                 <AccountsUIWrapper />
-
             </div>
         );
     }

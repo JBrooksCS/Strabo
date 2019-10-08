@@ -8,8 +8,12 @@ import TripDashboard from './TripDashboard';
 import { Meteor } from 'meteor/meteor';
 import { Landing } from "./Landing";
 import TripForm from './TripForm';
+import TripView from './TripView';
+
+
 
 class AppViews extends Component {
+
     render() {
         // console.log(Meteor.user() )
         // console.log(this.props)
@@ -32,9 +36,11 @@ class AppViews extends Component {
 
                 <Route exact path="/tripform" render={(props) =>
 
-                    <TripForm {...props} />} >
+                    <TripForm {...props} />} />
 
-                </Route>
+                <Route path="/trip/:tripId" render={(props) =>
+
+                    <TripView {...props} />} />
 
             </div>
         )
