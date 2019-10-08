@@ -10,32 +10,44 @@ import { Landing } from "./Landing";
 import TripForm from './TripForm';
 
 class AppViews extends Component {
-    render() {
-        // console.log(Meteor.user() )
-        // console.log(this.props)
 
+    
+    render() {
+        // console.log("MeteorUser : ", Meteor.user())
         return (
 
             <div className="Wrapper-AppViews">
 
                 <Route exact path="/" render={props => {
-                    if (Meteor.user()) {
+                    if (window.localStorage.getItem("Meteor.userId")) {
                         return <Redirect to="/dashboard" />
                     } else {
                         return <Redirect to="/landing" />
                     }
                 }} />
 
-                <Route exact path="/landing" component={Landing} />
+                <Route exact path="/landing" render={props => {
+                    if (window.localStorage.getItem("Meteor.userId")) {
+                        return <Redirect to="/dashboard" />
+                    } else {
+                        return <Landing />
+                    }
+                }} />
 
-                <Route exact path="/dashboard" component={TripDashboard} />
-
-                <Route exact path="/tripform" render={(props) =>
-
-                    <TripForm {...props} />} >
-
-                </Route>
-
+                <Route exact path="/dashboard" render={props => {
+                    if (window.localStorage.getItem("Meteor.userId")) {
+                        return <TripDashboard />
+                    } else {
+                        return <Redirect to="/landing" />
+                    }
+                }}  />
+                <Route exact path="/tripform" render={(props) => {
+                    if (window.localStorage.getItem("Meteor.userId")) {
+                        return <TripForm {...props} />
+                    } else {
+                        return <Redirect to="/landing" />
+                    }
+                }}  />
             </div>
         )
     }

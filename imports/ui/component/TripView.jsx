@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 export class TripView extends Component {
 
-
-
-
-
-
-
     render() {
         return (
             <div>
@@ -16,5 +10,4 @@ export class TripView extends Component {
         );
     }
 }
-
 export default TripView;
