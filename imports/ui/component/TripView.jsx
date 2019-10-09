@@ -31,8 +31,8 @@ function TripView(props) {
             <div>
                 <h2>{props.trip.name}</h2>
                 <h3>{props.trip.location}</h3>
-                {dateArray.map((trip, index) => {
-                    return <DayItem key={index} {...props} />
+                {dateArray.map((day, index) => {
+                    return <DayItem key={index} {...props} day={day} />
                 })}
             </div>
         );
