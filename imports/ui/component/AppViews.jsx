@@ -8,10 +8,13 @@ import TripDashboard from './TripDashboard';
 import { Meteor } from 'meteor/meteor';
 import { Landing } from "./Landing";
 import TripForm from './TripForm';
+import TripView from './TripView';
+
+
 
 class AppViews extends Component {
 
-    
+
     render() {
         // console.log("MeteorUser : ", Meteor.user())
         return (
@@ -25,6 +28,7 @@ class AppViews extends Component {
                         return <Redirect to="/landing" />
                     }
                 }} />
+
 
                 <Route exact path="/landing" render={props => {
                     if (window.localStorage.getItem("Meteor.userId")) {
@@ -40,14 +44,21 @@ class AppViews extends Component {
                     } else {
                         return <Redirect to="/landing" />
                     }
-                }}  />
+                }} />
                 <Route exact path="/tripform" render={(props) => {
                     if (window.localStorage.getItem("Meteor.userId")) {
                         return <TripForm {...props} />
                     } else {
                         return <Redirect to="/landing" />
                     }
-                }}  />
+                }} />
+                <Route path="/trip/:tripId" render={(props) => {
+                    if (window.localStorage.getItem("Meteor.userId")) {
+                        return <TripView {...props} />
+                    } else {
+                        return <Redirect to="/landing" />
+                    }
+                }} />
             </div>
         )
     }

@@ -38,7 +38,7 @@ Meteor.methods({
             longitude,
             startDate,
             endDate,
-            owner: this.userId,
+            owner: this.userId
         });
 
     },

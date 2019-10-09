@@ -5,6 +5,7 @@ import { Trips } from '../../api/trips'
 import { withTracker } from 'meteor/react-meteor-data';
 
 export class TripDashboard extends Component {
+
     render() {
         // console.log("TripDashboard Rendering")
         // console.log("Trips : ", this.props.trips)

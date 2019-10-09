@@ -21,10 +21,4 @@ class Strabo extends Component {
     }
 }
 // export default Strabo;
-export default withTracker(() => {
-    console.log("Updating withTracker")
-    return {
-        trips: Trips.find({}).fetch(),
-        currentUser: Meteor.user(),
-    };
-})(Strabo);
+export default Strabo;
