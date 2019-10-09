@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Trips } from '../../api/trips';
+import DayItem from './DayItem';
 
 function TripView(props) {
     console.log(props)
@@ -9,6 +10,7 @@ function TripView(props) {
             <div>
                 <h2>{props.trip.name}</h2>
                 <h3>{props.trip.location}</h3>
+                {/* <DayItem {...props} /> */}
             </div>
         );
     } else {
