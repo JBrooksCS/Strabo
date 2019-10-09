@@ -2,11 +2,7 @@ import React, { Component, useCallback } from 'react'
 import { useState } from 'react'
 import { Meteor } from 'meteor/meteor';
 import Calendar from './Calendar';
-import { Trips } from '../../api/trips';
 import Place_Search from "./Place_Search";
-import { withTracker } from 'meteor/react-meteor-data';
-import { func } from 'prop-types';
-
 
 
 const Input = (props) => <input style={{ background: "pink", color: "brown" }} {...props} />
